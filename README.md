@@ -19,6 +19,25 @@ Opted is an intelligent calendar optimization tool that leverages AI to help you
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Package Manager**: [pnpm](https://pnpm.io/)
 
+Implemented:
+
+- [X] Supabase Auth
+- [X] Supabase DB
+- [X] Landing page, FAQ, pricing
+- [X] Task CRUD
+- [X] Task DnD
+- [X] Placeholder UI for calendar, dashboard, stats
+- [X] Settings, dark mode
+- [ ] calendar visualization
+- [ ] calendar sync
+- [ ] auto scheduling tasks around existing events
+- [ ] AI chat interface
+- [ ] using agent to optimize schedule
+- [ ] using agent to create tasks
+- [ ] using agent to create long-term goals, breaking them into tasks
+
+
+
 ## Getting Started
 
 ### Prerequisites
