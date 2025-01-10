@@ -31,7 +31,7 @@ Opted is an intelligent calendar optimization tool that leverages AI to help you
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/opted.git
+git clone https://github.com/olifog/opted.git
 cd opted
 ```
 
@@ -85,4 +85,3 @@ MIT License - see [LICENSE](LICENSE) for details
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
