@@ -1,17 +1,15 @@
 import { NextResponse } from 'next/server'
 // The client you created from the Server-Side Auth instructions
 import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
   // if "next" is in param, use it as the redirect URL
   const next = searchParams.get('next') ?? '/'
-  const cookieStore = cookies()
 
   if (code) {
-    const supabase = createClient(cookieStore)
+    const supabase = await createClient()
     const { data, error } = await supabase.auth.exchangeCodeForSession(code)
     
     if (!error && data.session) {
@@ -40,6 +38,11 @@ export async function GET(request: Request) {
 
       const forwardedHost = request.headers.get('x-forwarded-host')
       const isLocalEnv = process.env.NODE_ENV === 'development'
+
+      console.log('isLocalEnv', isLocalEnv)
+      console.log('forwardedHost', forwardedHost)
+      console.log('origin', origin)
+      console.log('next', next)
       
       if (isLocalEnv) {
         return NextResponse.redirect(`${origin}${next}`)

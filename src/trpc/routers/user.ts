@@ -11,4 +11,9 @@ export const userRouter = createTRPCRouter({
     .mutation(async ({ input, ctx }) => {
       return await ctx.supabase.auth.admin.deleteUser(input.id);
     }),
+  getSignedInUser:
+    baseProcedure
+    .query(async ({ ctx }) => {
+      return await ctx.supabase.auth.getUser()
+    }),
 });

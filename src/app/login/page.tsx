@@ -1,12 +1,9 @@
-import { cookies } from 'next/headers'
-import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { AuthButton } from '@/components/auth/auth-button'
+import { trpc } from '@/trpc/server'
 
 export default async function LoginPage() {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-  const { data: { user } } = await supabase.auth.getUser()
+  const { data: { user } } = await trpc.user.getSignedInUser()
 
   if (user) {
     redirect('/dashboard')
