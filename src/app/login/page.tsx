@@ -3,7 +3,7 @@ import { AuthButton } from '@/components/auth/auth-button'
 import { trpc } from '@/trpc/server'
 
 export default async function LoginPage() {
-  const { data: { user } } = await trpc.user.getSignedInUser()
+  const user = await trpc.user.getSignedInUser()
 
   if (user) {
     redirect('/dashboard')

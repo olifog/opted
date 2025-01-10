@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { baseProcedure, createTRPCRouter } from '../init';
 import { userRouter } from './user';
+import { taskRouter } from './task';
 
 export const appRouter = createTRPCRouter({
   hello: baseProcedure
@@ -15,6 +16,7 @@ export const appRouter = createTRPCRouter({
       };
     }),
   user: userRouter,
+  task: taskRouter,
 });
 
 // export type definition of API

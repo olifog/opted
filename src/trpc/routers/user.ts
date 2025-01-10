@@ -1,10 +1,9 @@
 import { z } from "zod";
-import { createTRPCRouter } from "../init";
-import { baseProcedure } from "../init";
+import { baseProcedure, createTRPCRouter, protectedProcedure } from "../init";
 
 export const userRouter = createTRPCRouter({
   deleteUser:
-    baseProcedure
+    protectedProcedure
     .input(z.object({
       id: z.string()
     }))
@@ -14,6 +13,7 @@ export const userRouter = createTRPCRouter({
   getSignedInUser:
     baseProcedure
     .query(async ({ ctx }) => {
-      return await ctx.supabase.auth.getUser()
+      const user = await ctx.supabase.auth.getUser();
+      return user.data.user;
     }),
 });

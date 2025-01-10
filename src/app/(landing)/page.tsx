@@ -96,7 +96,7 @@ export default function Home() {
               Join thousands of professionals who trust Opted to manage their time effectively.
             </p>
             <Button asChild size="lg" className="mt-4">
-              <Link href="/login">Start Free Trial</Link>
+              <Link href="/login">Get Started</Link>
             </Button>
           </div>
         </section>

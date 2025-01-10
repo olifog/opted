@@ -11,6 +11,7 @@ export type Database = {
     Tables: {
       task: {
         Row: {
+          complete: boolean
           created_at: string
           deadline: string | null
           description: string | null
@@ -20,9 +21,11 @@ export type Database = {
           parent_task_id: number | null
           parent_task_index: number | null
           startline: string | null
+          time_estimate: number
           user_id: string
         }
         Insert: {
+          complete?: boolean
           created_at?: string
           deadline?: string | null
           description?: string | null
@@ -32,9 +35,11 @@ export type Database = {
           parent_task_id?: number | null
           parent_task_index?: number | null
           startline?: string | null
+          time_estimate: number
           user_id: string
         }
         Update: {
+          complete?: boolean
           created_at?: string
           deadline?: string | null
           description?: string | null
@@ -44,6 +49,7 @@ export type Database = {
           parent_task_id?: number | null
           parent_task_index?: number | null
           startline?: string | null
+          time_estimate?: number
           user_id?: string
         }
         Relationships: [

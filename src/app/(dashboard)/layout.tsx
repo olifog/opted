@@ -7,7 +7,7 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
-  const { data: { user } } = await trpc.user.getSignedInUser()
+  const user = await trpc.user.getSignedInUser()
 
   if (!user) {
     redirect('/login')
